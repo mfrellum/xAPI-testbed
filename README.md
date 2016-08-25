@@ -9,6 +9,6 @@ Components:
     MongoDB
     
 Third-party:
-  https://github.com/hongymagic/learninglocker/tree/1.12.1-http
-  https://hub.docker.com/_/wordpress/
-  (https://github.com/docker-library/wordpress/tree/master/apache)
+*  https://github.com/hongymagic/learninglocker/tree/1.12.1-http
+*  https://hub.docker.com/_/wordpress/
+  *  (https://github.com/docker-library/wordpress/tree/master/apache)
