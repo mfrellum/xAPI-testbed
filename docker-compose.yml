@@ -1,0 +1,47 @@
+version: '2'
+# Warning: under construction. Come back later.
+
+services:
+
+  wordpress:
+    image: wordpress
+    links:
+      - WPmsql:mysql
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_PASSWORD: example
+
+  WPmysql:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  LLweb:
+    container_name: learninglocker-web
+    build: https://github.com/hongymagic/learninglocker/archive/1.12.1-http.zip # Will this work?
+    links:
+      - LLdb:mongo
+    environment:
+      APP_URL: 'localhost' # Will this work? Try URL: http://localhost:8098/public
+      APP_SECRET_KEY: 'CHANGEME12345678'
+      SMTP_SERVER: 'smtp.sendgrid.net'
+      SMTP_PORT: 587
+      SMTP_USER: 'your own'
+      SMTP_PASSWORD: 'your own'
+      EMAIL_FROM_NAME: 'Learning Locker LRS Docker Container'
+      EMAIL_FROM_ADDRESS: 'learninglocker@lrs.localhost'
+    ports:
+      - "8098:80"
+  LLdb:
+    container_name: learninglocker-db
+    image: tutum/mongodb:3.2
+    environment:
+      MONGODB_DATABASE: 'learninglocker'
+      MONGODB_USER: 'learninglocker'
+      MONGODB_PASS: 'learninglocker'
+    ports:
+      - "27017:27017"
+      - "28017:28017"
+    
+ 
