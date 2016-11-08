@@ -6,7 +6,7 @@ services:
   wordpress:
     image: wordpress
     links:
-      - WPmsql:mysql
+      - WPmysql:mysql
     ports:
       - 8080:80
     environment:
@@ -18,13 +18,13 @@ services:
       MYSQL_ROOT_PASSWORD: example
 
   LLweb:
-    container_name: learninglocker-web
+#    container_name: learninglocker-web
     image: hongymagic/learninglocker.git:1.12.1-http
-    build: https://github.com/hongymagic/learninglocker.git#1.12.1-http: # Will this work?
+    build: https://github.com/hongymagic/learninglocker.git#1.12.1-http # Will this work?
     links:
       - LLdb:mongo
     environment:
-      APP_URL: 'localhost' # Will this work? Try URL: http://localhost:8098/public
+      APP_URL: 'localhost' # Will this work? Try URL: http://localhost:8099/public
       APP_SECRET_KEY: 'CHANGEME12345678'
       SMTP_SERVER: 'smtp.sendgrid.net'
       SMTP_PORT: 587
@@ -33,16 +33,16 @@ services:
       EMAIL_FROM_NAME: 'Learning Locker LRS Docker Container'
       EMAIL_FROM_ADDRESS: 'learninglocker@lrs.localhost'
     ports:
-      - "8098:80"
+      - "8099:80"
   LLdb:
-    container_name: learninglocker-db
+#    container_name: learninglocker-db
     image: tutum/mongodb:3.2
     environment:
       MONGODB_DATABASE: 'learninglocker'
       MONGODB_USER: 'learninglocker'
       MONGODB_PASS: 'learninglocker'
-    ports:
-      - "27017:27017"
-      - "28017:28017"
+#    ports:
+#      - "27017:27017"
+#      - "28017:28017"
     
  
