@@ -20,7 +20,7 @@ services:
   LLweb:
 #    container_name: learninglocker-web
     image: hongymagic/learninglocker:1.12.1-http
-    build: https://github.com/hongymagic/learninglocker.git#1.12.1-http # Will this work?
+    build: https://github.com/hongymagic/learninglocker.git#1.12.1-http # Will this work? Yes :)
     links:
       - LLdb:mongo
     environment:
