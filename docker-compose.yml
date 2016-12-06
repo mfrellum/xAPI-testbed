@@ -19,14 +19,13 @@ services:
       MYSQL_ROOT_PASSWORD: example
 
   LLweb:
-    container_name: learninglocker-web
-    image: mfrellum/learninglocker:1.12.1-http
-    build: https://github.com/mfrellum/learninglocker.git#1.12.1-http
+    image: mfrellum/learninglocker:1.14.0-http
+    build: https://github.com/mfrellum/learninglocker.git#1.14.0-http
     links:
       - LLdb:mongo
     environment:
-      LEARNINGLOCKER_DB_HOST: 'mongo:27017'
-      APP_URL: 'localhost' # Will this work? Try URL: http://localhost:8099/public
+      LEARNINGLOCKER_DB_HOST: 'mongo:27017' # Have to set this for now because of change to version 2 of docker-compose file
+      APP_URL: 'lrs.dockerhost' # Map in /etc/hosts
       APP_SECRET_KEY: 'CHANGEME12345678'
       SMTP_SERVER: 'smtp.sendgrid.net'
       SMTP_PORT: 587
