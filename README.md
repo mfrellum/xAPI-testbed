@@ -4,7 +4,8 @@ This is a set of Docker containers you can use to test xAPI. They are orchestrat
 Components:
 *  Docker-compose.yml
 *  WordPress site with plugins: H5P, H5P-xAPI
-  *  DB for WordPress (MariaDB)
+  * DB for WordPress (MariaDB)
+  * http://wp-cli.org/
 *  LRS (LearningLocker)
   *  MongoDB
   
