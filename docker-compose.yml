@@ -9,7 +9,7 @@ services:
     links:
       - WPmysql:mysql
     ports:
-      - 8080:80
+      - 80:80
     environment:
       WORDPRESS_DB_PASSWORD: example
     env_file:
